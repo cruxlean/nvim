@@ -20,6 +20,8 @@ end
 
 -- 按键映射(keymap)按照字母表排序
 -- A
+-- auto-save
+mapcmd("<leader>at", "ASToggle")
 
 -- B: 
 -- bufferline

@@ -1,9 +1,9 @@
-vim.cmd[[
-    augroup packer_user_config
-        autocmd!
-        autocmd BufWritePost plugins.lua source <afile> | PackerSync
-    augroup end
-]]
+--vim.cmd[[
+--    augroup packer_user_config
+--        autocmd!
+--        autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--    augroup end
+--]]
 vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(
     {
@@ -62,9 +62,9 @@ return require('packer').startup(
             }
             -- 自动保存
             use {
-                "Pocco81/AutoSave.nvim",
+                "Pocco81/auto-save.nvim",
                 config = function ()
-                    require("configs.AutoSave")
+                    require("configs.auto-save")
                 end
             }
             -- 优秀的暗色主题
