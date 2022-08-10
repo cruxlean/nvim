@@ -257,7 +257,7 @@ return require('packer').startup(
             use {"neovim/nvim-lspconfig"}
             -- LSP UI 美化
             use {
-                "tami5/lspsaga.nvim",
+                "kkharji/lspsaga.nvim",
                 config = function()
                     require("configs.lspsaga")
                 end
