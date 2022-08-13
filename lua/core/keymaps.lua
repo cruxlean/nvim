@@ -95,6 +95,17 @@ maplua('<leader>gp', 'vim.diagnostic.goto_prev()')
 maplua('<leader>gn', 'vim.diagnostic.goto_next()')
 maplua('<leader>gr', 'vim.lsp.buf.references()')
 
+-- gitsigns
+mapcmd('<leader>gg', 'Gitsigns stage_buffer')
+mapcmd('<leader>gu', 'Gitsigns undo_stage_hunk')
+mapcmd('<leader>gb', 'Gitsigns reset_buffer')
+mapcmd('<leader>gh', 'Gitsigns preview_hunk')
+mapcmd('<leader>gc', 'Gitsigns toggle_current_line_blame')
+mapcmd('<leader>gf', 'Gitsigns diffthis')
+mapcmd('<leader>ge', 'Gitsigns toggle_deleted')
+maplua('<leader>gl', 'require"gitsigns".blame_line{full=true}')
+maplua('<leader>gs', 'require"gitsigns".diffthis("~")')
+
 -- H
 -- hop
 -- 搜索并跳转到单词

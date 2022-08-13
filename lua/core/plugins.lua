@@ -67,13 +67,9 @@ return require('packer').startup(
                     require("configs.auto-save")
                 end
             }
-            -- 优秀的暗色主题
-            use {
-                "sainnhe/sonokai",
-                config = function ()
-                    require("configs.sonokai-theme")
-                end
-            }
+            -- 优秀的主题
+            use {"sainnhe/sonokai"}
+            use {"sainnhe/edge"}
             -- 炫酷的状态栏插件
             use {
                 "nvim-lualine/lualine.nvim",
@@ -92,7 +88,7 @@ return require('packer').startup(
                     "nvim-lua/plenary.nvim"
                 },
                 config = function()
-                    require("gitsigns").setup()
+                    require("configs.gitsigns")
                 end
             }
             -- 支持 LSP 状态的 buffer 栏
@@ -402,7 +398,7 @@ return require('packer').startup(
                 config = function()
                     require("configs.nvim-dap")
                 end
-            }                                             
+            }
             -- 为代码调试提供内联文本
             use {
                 "theHamsta/nvim-dap-virtual-text",
