@@ -237,6 +237,8 @@ mapcmd('<leader>tsm', "Telescope marks")
 -- 显示弹窗历史记录
 maplua('<leader>tsn', "require('telescope').extensions.notify.notify()")
 maplua("<leader>tsy", "require('notify').history()")
+-- telescope project
+maplua("<leader>tsp","require'telescope'.extensions.project.project{display_type = 'full'}")
 
 -- U
 

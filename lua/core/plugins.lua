@@ -139,10 +139,8 @@ return require('packer').startup(
             }
             -- 包裹修改
             use {
-                "ur4ltz/surround.nvim",
-                requires = {
-                    "tpope/vim-repeat"
-                },
+                "kylechui/nvim-surround",
+                tag = "*",
                 config = function()
                     require("configs.surround")
                 end
@@ -235,6 +233,14 @@ return require('packer').startup(
                 end
             }
             use {"nvim-telescope/telescope-ui-select.nvim"}
+            use {"nvim-telescope/telescope-file-browser.nvim"}
+            use {"nvim-telescope/telescope-packer.nvim"}
+            use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
+            use {"nvim-telescope/telescope-project.nvim"}
+            use {
+                "nvim-telescope/telescope-frecency.nvim",
+                requires = {"kkharji/sqlite.lua"}
+            }
             -- 精美弹窗
             use {
                 "rcarriga/nvim-notify",
