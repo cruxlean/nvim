@@ -5,7 +5,7 @@ require("nvim-treesitter.configs").setup(
         -- 同步下载高亮支持
         sync_install = true,
         ensure_installed = { "c","cpp","lua","html","yaml","python",
-        "vim","java","bash","json","toml","markdown","make","css","javascript","typescript"},
+        "vim","bash","json","toml","markdown","make","css","javascript","typescript"},
         ignore_install = { }, -- parsers to not install
         auto_install = true,
         -- 高亮相关
