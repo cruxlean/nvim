@@ -160,9 +160,14 @@ mapcmd("<leader>lr", "LspRestart")
 
 -- N
 -- 文件浏览树
-mapcmd('<leader>nf', 'NvimTreeFocus')
-mapcmd('<leader>nl', 'NvimTreeFindFile')
-mapcmd('<leader>nt', 'NvimTreeToggle')
+--如果树已关闭，请将其打开，然后将焦点放在树上。
+mapcmd("<leader>nf", "NvimTreeFocus")
+--在树中移动当前缓冲区的光标，并根据需要打开文件夹。
+mapcmd("<leader>nl", "NvimTreeFindFile")
+--打开或关闭树。采用可选的路径参数
+mapcmd("<leader>nt", "NvimTreeToggle")
+--以递归方式折叠nvim树。
+mapcmd("<leader>nc", "NvimTreeCollapse")
 
 -- O
 
