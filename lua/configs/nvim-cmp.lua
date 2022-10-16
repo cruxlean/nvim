@@ -132,17 +132,17 @@ cmp.setup.filetype('gitcommit', {
     })
 })
 -- 命令行 / 模式提示
-cmp.setup.cmdline("/",{
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources(
+cmp.setup.cmdline({"/","?"},{
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
         {
             { name = 'nvim_lsp_document_symbol' }
         },
         {
             { name = 'buffer' }
-        })
+        }
     }
-)
+})
 -- 命令行 : 模式提示
 cmp.setup.cmdline(":",{
         mapping = cmp.mapping.preset.cmdline(),

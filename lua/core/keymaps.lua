@@ -126,6 +126,19 @@ mapcmd("<leader>hp", "HopPattern")
 mapcmd('<Leader>hs', 'noh')
 
 -- I
+-- vim-illuminate
+-- Globally pause vim-illuminate.
+mapcmd("<keader>ip","IlluminatePause")
+--Globally resume vim-illuminate.
+mapcmd("<keader>ir","IlluminateResume")
+--Globally toggle the pause/resume for vim-illuminate.
+mapcmd("<keader>ig","IlluminateToggle")
+--Buffer-local pause of vim-illuminate.
+mapcmd("<keader>if","IlluminatePauseBuf")
+--Buffer-local resume of vim-illuminate.
+mapcmd("<keader>iu","IlluminateResumeBuf")
+--Buffer-local toggle of the pause/resume for vim-illuminate.
+mapcmd("<keader>it","IlluminateToggleBuf")
 
 -- J
 
