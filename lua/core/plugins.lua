@@ -51,10 +51,10 @@ return require('packer').startup(
             }
             -- 文件目录树
             use {
-                "kyazdani42/nvim-tree.lua",
+                "nvim-tree/nvim-tree.lua",
                 requires = {
                     -- 依赖一个图标插件
-                    "kyazdani42/nvim-web-devicons"
+                    "nvim-tree/nvim-web-devicons"
                 },
                 config = function()
                     require("configs.nvim-tree")
@@ -74,7 +74,7 @@ return require('packer').startup(
             use {
                 "nvim-lualine/lualine.nvim",
                 requires = {
-                    'kyazdani42/nvim-web-devicons', opt = true
+                    'nvim-tree/nvim-web-devicons', opt = true
                 },
                 config = function()
                     require("configs.lualine")
@@ -287,7 +287,7 @@ return require('packer').startup(
             }
             use {
                 "folke/trouble.nvim",
-                requires = "kyazdani42/nvim-web-devicons",
+                requires = "nvim-tree/nvim-web-devicons",
                 config = function()
                   require("configs.trouble-nvim")
                 end
