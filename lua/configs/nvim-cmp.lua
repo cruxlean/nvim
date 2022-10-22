@@ -25,7 +25,15 @@ cmp.setup(
                 {name = "path"},
                 {name = "buffer"},
                 {name = "cmdline"},
-                {name = "spell"},
+                {
+                    name = "spell",
+                    option = {
+                        keep_all_entries = false,
+                        enable_in_context = function()
+                            return true
+                        end,
+                    }
+                },
                 {name = "git"},
                 {name = "nvim_lsp_signature_help"},
                 {name = "calc"},

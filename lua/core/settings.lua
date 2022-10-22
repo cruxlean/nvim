@@ -36,6 +36,9 @@ vim.o.ignorecase        = true
 vim.o.smartcase         = true
 vim.o.incsearch         = true
 vim.o.hlsearch          = true
+-- 拼写建议
+vim.opt.spell           = true
+vim.opt.spelllang       = { 'en_us' }
 -- 鼠标支持
 vim.o.mouse             = "a"
 -- 启用系统剪切板

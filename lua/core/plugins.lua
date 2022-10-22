@@ -53,7 +53,6 @@ return require('packer').startup(
             use {
                 "nvim-tree/nvim-tree.lua",
                 requires = {
-                    -- 依赖一个图标插件
                     "nvim-tree/nvim-web-devicons"
                 },
                 config = function()
@@ -257,6 +256,13 @@ return require('packer').startup(
             }
             -- LSP 基础服务
             use {"neovim/nvim-lspconfig"}
+            -- 增强语言服务器功能插件
+            use {
+                "p00f/clangd_extensions.nvim",
+                config = function ()
+                    require("configs.clangd_extensions")
+                end
+            }
             -- LSP UI 美化
             use {
                 "kkharji/lspsaga.nvim",

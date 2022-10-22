@@ -1,1 +1,1 @@
-vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
+require('nvim-lightbulb').setup({autocmd = {enabled = true}})
