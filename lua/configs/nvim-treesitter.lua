@@ -36,9 +36,10 @@ require("nvim-treesitter.configs").setup(
         -- 彩虹括号，由 nvim-ts-rainbow 插件提供
         rainbow = {
             enable = true,
-            extended_mode = true
+            extended_mode = true,
             -- colors = {}, -- table of hex strings
             -- termcolors = {} -- table of colour name strings
+            max_file_lines = nil
         },
         -- 根据当前上下文定义文件类型，由 nvim-ts-context-commentstring 插件提供
         context_commentstring = {

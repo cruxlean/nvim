@@ -84,6 +84,8 @@ vim.o.langmenu          = "zh_CN.UTF-8"
 vim.wo.foldmethod       = "expr"
 vim.wo.foldexpr         = "nvim_treesitter#foldexpr()"
 vim.wo.foldlevel        = 99
+-- SQLite address(windows)
+vim.g.sqlite_clib_path  ="path/to/sqlite.dll"
 
 -- disable some useless standard plugins to save startup time
 -- these features have been better covered by plugins

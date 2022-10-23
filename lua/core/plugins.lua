@@ -8,7 +8,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(
     {
         function()
--- 所有插件的安装都书写在 function 中
+        -- 所有插件的安装都书写在 function 中
 
             -- 包管理器
             use {
@@ -18,16 +18,16 @@ return require('packer').startup(
             use {
                 "yianwillis/vimcdoc",
             }
-            -- Neovim打开页
-            -- use {"leslie255/aleph-nvim"}
+            -- Neovim封面
             use {
                 "goolord/alpha-nvim",
                 config = function ()
                     require("configs.alpha-nvim")
                 end
             }
-            -- 启动时间优化
+            -- 测量启动时间
             use {"dstein64/vim-startuptime"}
+            -- 启动时间优化
             use {"lewis6991/impatient.nvim"}
             use {
                 "nathom/filetype.nvim",
@@ -42,6 +42,7 @@ return require('packer').startup(
                     require("configs.nvim-bufdel")
                 end
             }
+            use {"famiu/bufdelete.nvim"}
             -- 查看符号大纲
             use {
                 "simrat39/symbols-outline.nvim",
@@ -49,7 +50,7 @@ return require('packer').startup(
                     require("configs.symbols-outline")
                 end
             }
-            -- 文件目录树
+            -- 查看文件目录
             use {
                 "nvim-tree/nvim-tree.lua",
                 requires = {
@@ -69,6 +70,14 @@ return require('packer').startup(
             -- 优秀的主题
             use {"sainnhe/sonokai"}
             use {"sainnhe/edge"}
+            use {"folke/tokyonight.nvim"}
+            -- winbar
+            use {
+                "fgheng/winbar.nvim",
+                config = function ()
+                    require("configs.winbar")
+                end
+            }
             -- 炫酷的状态栏插件
             use {
                 "nvim-lualine/lualine.nvim",
@@ -82,10 +91,6 @@ return require('packer').startup(
             -- 状态栏显示git信息
             use {
                 "lewis6991/gitsigns.nvim",
-                requires = {
-                    -- 依赖于该插件（一款 Lua 开发使用的插件）
-                    "nvim-lua/plenary.nvim"
-                },
                 config = function()
                     require("configs.gitsigns")
                 end
@@ -93,9 +98,7 @@ return require('packer').startup(
             -- 支持 LSP 状态的 buffer 栏
             use {
                 "akinsho/bufferline.nvim",
-                requires = {
-                    "famiu/bufdelete.nvim" -- 删除 buffer 时不影响现有布局
-                },
+                tag = "v3.*",
                 config = function()
                     require("configs.bufferline")
                 end
@@ -151,13 +154,6 @@ return require('packer').startup(
                     require("configs.vim-illuminate")
                 end
             }
-            -- 拼写检查器
-            use {
-                "lewis6991/spellsitter.nvim",
-                config = function()
-                    require("configs.spellsitter")
-                end
-            }
             -- 自动恢复光标位置
             use {
                 "ethanholz/nvim-lastplace",
@@ -169,8 +165,7 @@ return require('packer').startup(
             use {
                 "nvim-pack/nvim-spectre",
                 requires = {
-                    "nvim-lua/plenary.nvim", -- Lua 开发模块
-                    "BurntSushi/ripgrep" -- 文字查找
+                    "nvim-lua/plenary.nvim",
                 },
                 config = function()
                     require("configs.nvim-spectre")
@@ -186,8 +181,8 @@ return require('packer').startup(
             vim.cmd([[
                 aug VMlens
                     au!
-                    au User visual_multi_start lua require('vmlens').start()
-                    au User visual_multi_exit lua require('vmlens').exit()
+                    au User visual_multi_start lua require('configs.vmlens').start()
+                    au User visual_multi_exit lua require('configs.vmlens').exit()
                 aug END
             ]])
             -- 显示滚动条
@@ -254,29 +249,6 @@ return require('packer').startup(
                     require("configs.todo-comments")
                 end
             }
-            -- LSP 基础服务
-            use {"neovim/nvim-lspconfig"}
-            -- 增强语言服务器功能插件
-            use {
-                "p00f/clangd_extensions.nvim",
-                config = function ()
-                    require("configs.clangd_extensions")
-                end
-            }
-            -- LSP UI 美化
-            use {
-                "kkharji/lspsaga.nvim",
-                config = function()
-                    require("configs.lspsaga")
-                end
-            }
-            -- LSP 进度提示
-            use {
-                "j-hui/fidget.nvim",
-                config = function()
-                    require("configs.fidget")
-                end
-            }
             -- 插入模式获得函数签名
             use {
                 "ray-x/lsp_signature.nvim",
@@ -291,6 +263,7 @@ return require('packer').startup(
                     require("configs.nvim-lightbulb")
                 end
             }
+            -- 用于显示诊断，参考，望远镜结果，快速修复和位置列表
             use {
                 "folke/trouble.nvim",
                 requires = "nvim-tree/nvim-web-devicons",
@@ -298,6 +271,30 @@ return require('packer').startup(
                   require("configs.trouble-nvim")
                 end
               }
+            -- LSP 基础服务
+            use {"neovim/nvim-lspconfig"}
+            -- 增强语言服务器功能插件
+            use {
+                "p00f/clangd_extensions.nvim",
+                config = function ()
+                    require("configs.clangd_extensions")
+                end
+            }
+            use {"nanotee/sqls.nvim"}
+            -- LSP UI 美化
+            use {
+                "kkharji/lspsaga.nvim",
+                config = function()
+                    require("configs.lspsaga")
+                end
+            }
+            -- LSP 进度提示
+            use {
+                "j-hui/fidget.nvim",
+                config = function()
+                    require("configs.fidget")
+                end
+            }
             -- 自动代码补全系列插件
             use {
                 "hrsh7th/nvim-cmp",  -- 代码补全核心插件，下面都是增强补全的体验插件
@@ -309,7 +306,7 @@ return require('packer').startup(
                     -- {"saadparwaiz1/cmp_luasnip"},
 
                     -- For vsnip users.
-                    {"hrsh7th/vim-vsnip-integ"},
+                    {"hrsh7th/vim-vsnip-integ"}, --集成了一些插件
                     {"hrsh7th/vim-vsnip"}, -- vsnip 引擎，用于获得代码片段支持
                     {"hrsh7th/cmp-vsnip"}, -- 适用于 vsnip 的代码片段源
 
@@ -357,13 +354,12 @@ return require('packer').startup(
             use {
                 "nvim-treesitter/nvim-treesitter",
                 run = {":TSUpdate"},
-                requires = {
-                    "p00f/nvim-ts-rainbow" -- 彩虹括号
-                },
                 config = function()
                     require("configs.nvim-treesitter")
                 end
             }
+            -- 彩虹括号
+            use {"p00f/nvim-ts-rainbow"}
             -- 显示当前可见缓冲区内容的上下文
             use {
                 'nvim-treesitter/nvim-treesitter-context',
@@ -371,12 +367,17 @@ return require('packer').startup(
                     require("configs.nvim-treesitter-context")
                 end
             }
+            -- 语法感知文本对象，选择、移动、交换和速览支持。
+            use {
+                "nvim-treesitter/nvim-treesitter-textobjects",
+                config = function ()
+                    require("configs.nvim-treesitter-textobjects")
+                end
+            }
+            use {"JoosepAlviste/nvim-ts-context-commentstring"}
             -- 代码注释
             use {
                 "numToStr/Comment.nvim",
-                requires = {
-                    "JoosepAlviste/nvim-ts-context-commentstring"
-                },
                 config = function()
                     require("configs.Comment")
                 end
@@ -395,15 +396,13 @@ return require('packer').startup(
                     require("configs.lsp-colors")
                 end
             }
-            -- view tree
+            -- LSP 符号和标签的查看器和查找器
             use {
                 "liuchengxu/vista.vim",
                 config = function()
                     require("configs.vista")
                 end
             }
-            -- sqls
-            use {"nanotee/sqls.nvim"}
             -- 代码调试基础插件
             use {
                 "mfussenegger/nvim-dap",
@@ -414,9 +413,6 @@ return require('packer').startup(
             -- 为代码调试提供内联文本
             use {
                 "theHamsta/nvim-dap-virtual-text",
-                requires = {
-                    "mfussenegger/nvim-dap"
-                },
                 config = function()
                     require("configs.nvim-dap-virtual-text")
                 end
@@ -424,9 +420,6 @@ return require('packer').startup(
             -- 为代码调试提供 UI 界面
             use {
                 "rcarriga/nvim-dap-ui",
-                requires = {
-                    "mfussenegger/nvim-dap"
-                },
                 config = function()
                     require("configs.nvim-dap-ui")
                 end
