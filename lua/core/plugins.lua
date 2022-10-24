@@ -172,12 +172,7 @@ return require('packer').startup(
                 end
             }
             -- 多光标模式
-            use {
-                "mg979/vim-visual-multi",
-                config = function ()
-                    require("configs.vimlens")
-                end
-            }
+            use {"mg979/vim-visual-multi"}
             vim.cmd([[
                 aug VMlens
                     au!
@@ -185,6 +180,15 @@ return require('packer').startup(
                     au User visual_multi_exit lua require('configs.vmlens').exit()
                 aug END
             ]])
+            -- 代码折叠
+            use {
+                "kevinhwang91/nvim-ufo",
+                requires = "kevinhwang91/promise-async",
+                config = function ()
+                    require("configs.nvim-ufo")
+                end
+                
+            }
             -- 显示滚动条
             use {
                 "petertriho/nvim-scrollbar",
@@ -235,6 +239,13 @@ return require('packer').startup(
                 "nvim-telescope/telescope-frecency.nvim",
                 requires = {"kkharji/sqlite.lua"}
             }
+            -- 工程管理
+            --use {
+            --    "ahmedkhalf/project.nvim",
+            --    config = function ()
+            --        require("configs.projects")
+            --    end
+            -- }
             -- 精美弹窗
             use {
                 "rcarriga/nvim-notify",

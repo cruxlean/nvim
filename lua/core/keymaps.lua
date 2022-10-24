@@ -259,6 +259,8 @@ maplua("<leader>tsy", "require('notify').history()")
 maplua("<leader>tsp","require'telescope'.extensions.project.project{display_type = 'full'}")
 
 -- U
+maplua("<leader>ur","require('ufo').openAllFolds")
+maplua("<leader>um"," require('ufo').closeAllFolds")
 
 -- V
 -- vista

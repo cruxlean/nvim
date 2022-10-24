@@ -4,8 +4,8 @@
 -- 自动缩进策略
 vim.opt.filetype        = "plugin"
 -- 代码折叠策略
-vim.opt.foldmethod      = "indent"
-vim.opt.foldlevel       = 100
+-- vim.opt.foldmethod      = "indent"
+-- vim.opt.foldlevel       = 100
 -- 开启语法高亮
 vim.opt.syntax          = "enable"
 -- 行号显示 绝对行号和相对行号
@@ -69,26 +69,30 @@ vim.opt.shiftround      = true
 -- 插入括号时短暂跳转到另一半括号
 vim.o.showmatch         = true
 -- 自动补全不自动选中
-vim.g.completeopt = "menu,menuone,noselect,noinsert"
+vim.g.completeopt       = "menu,menuone,noselect,noinsert"
 -- 光标在行首尾时<Left><Right>可以跳到下一行
-vim.o.whichwrap = "<,>,[,]"
+vim.o.whichwrap         = "<,>,[,]"
 -- 补全最多显示16行
-vim.o.pumheight = 16
+vim.o.pumheight         = 16
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
-vim.o.showmode = false
+vim.o.showmode          = false
 -- redrawtime
 vim.opt.redrawtime      = 10000
 -- 语言
 vim.o.langmenu          = "zh_CN.UTF-8"
--- 开启folding
+-- 代码折叠
 vim.wo.foldmethod       = "expr"
 vim.wo.foldexpr         = "nvim_treesitter#foldexpr()"
 vim.wo.foldlevel        = 99
+vim.o.foldcolumn        = '1' -- '0' is not bad
+vim.o.foldlevelstart    = 99
+vim.o.foldenable        = true
+
 -- SQLite address(windows)
-vim.g.sqlite_clib_path  ="path/to/sqlite.dll"
+-- vim.g.sqlite_clib_path  ="path/to/sqlite.dll"
 
 -- disable some useless standard plugins to save startup time
--- these features have been better covered by plugins
+-- these featuresve been better covered by plugins
 vim.g.loaded_matchparen        = 1
 vim.g.loaded_matchit           = 1
 vim.g.loaded_logiPat           = 1
