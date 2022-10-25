@@ -86,7 +86,6 @@ maplua("<leader>du", "require'dapui'.toggle()")
 mapcmd("<leader>f", "Neoformat")
 
 -- G
--- goto
 maplua('<leader>gD', 'vim.lsp.buf.declaration()')
 maplua('<leader>gd', 'vim.lsp.buf.definition()')
 maplua('<leader>gt', 'vim.lsp.buf.type_definition()')
@@ -168,6 +167,30 @@ mapcmd("<leader>li", "LspInfo")
 mapcmd("<leader>ls", "LspStart")
 mapcmd("<leader>lt", "LspStop")
 mapcmd("<leader>lr", "LspRestart")
+
+-- lspsaga
+mapcmd("<leader>lgc", "Lspsaga code_action")
+mapcmd("<leader>lgr", "Lspsaga rename")
+mapcmd("<leader>lgf", "Lspsaga peek_definition")
+mapcmd("<leader>lgl", "Lspsaga show_line_diagnostics")
+mapcmd("<leader>lgd", "Lspsaga show_cursor_diagnostics")
+mapcmd("<leader>lgp", "Lspsaga diagnostic_jump_prev")
+mapcmd("<leader>lgn", "Lspsaga diagnostic_jump_next")
+
+vim.keymap.set("n", "[E", function()
+  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+
+vim.keymap.set("n", "]E", function()
+  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+
+mapcmd("<leader>lgt", "LSoutlineToggle")
+mapcmd("<Leader>lgo", "Lspsaga hover_doc")
+
+mapcmd("<A-d>", "Lspsaga open_floaterm")
+mapcmd("<A-d>", "Lspsaga open_floaterm lazygit")
+vim.keymap.set("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
 
 -- M
 

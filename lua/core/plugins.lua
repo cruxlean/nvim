@@ -289,7 +289,7 @@ return require('packer').startup(
             use {"nanotee/sqls.nvim"}
             -- LSP UI 美化
             use {
-                "kkharji/lspsaga.nvim",
+                "glepnir/lspsaga.nvim",
                 config = function()
                     require("plugin-configs.lspsaga")
                 end
