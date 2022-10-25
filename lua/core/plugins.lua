@@ -19,12 +19,7 @@ return require('packer').startup(
                 "yianwillis/vimcdoc",
             }
             -- Neovim封面
-            use {
-                "goolord/alpha-nvim",
-                config = function ()
-                    require("configs.alpha-nvim")
-                end
-            }
+            use {"goolord/alpha-nvim"}
             -- 测量启动时间
             use {"dstein64/vim-startuptime"}
             -- 启动时间优化
@@ -32,14 +27,14 @@ return require('packer').startup(
             use {
                 "nathom/filetype.nvim",
                 config = function ()
-                    require("configs.filetype")
+                    require("plugin-configs.filetype")
                 end
             }
             -- 缓冲区删除不改变布局
             use {
                 "ojroques/nvim-bufdel",
                 config = function ()
-                    require("configs.nvim-bufdel")
+                    require("plugin-configs.nvim-bufdel")
                 end
             }
             use {"famiu/bufdelete.nvim"}
@@ -47,7 +42,7 @@ return require('packer').startup(
             use {
                 "simrat39/symbols-outline.nvim",
                 config = function ()
-                    require("configs.symbols-outline")
+                    require("plugin-configs.symbols-outline")
                 end
             }
             -- 查看文件目录
@@ -57,14 +52,14 @@ return require('packer').startup(
                     "nvim-tree/nvim-web-devicons"
                 },
                 config = function()
-                    require("configs.nvim-tree")
+                    require("plugin-configs.nvim-tree")
                 end
             }
             -- 自动保存
             use {
                 "Pocco81/auto-save.nvim",
                 config = function ()
-                    require("configs.auto-save")
+                    require("plugin-configs.auto-save")
                 end
             }
             -- 优秀的主题
@@ -75,7 +70,7 @@ return require('packer').startup(
             use {
                 "fgheng/winbar.nvim",
                 config = function ()
-                    require("configs.winbar")
+                    require("plugin-configs.winbar")
                 end
             }
             -- 炫酷的状态栏插件
@@ -85,14 +80,14 @@ return require('packer').startup(
                     'nvim-tree/nvim-web-devicons', opt = true
                 },
                 config = function()
-                    require("configs.lualine")
+                    require("plugin-configs.lualine")
                 end
             }
             -- 状态栏显示git信息
             use {
                 "lewis6991/gitsigns.nvim",
                 config = function()
-                    require("configs.gitsigns")
+                    require("plugin-configs.gitsigns")
                 end
             }
             -- 支持 LSP 状态的 buffer 栏
@@ -100,35 +95,35 @@ return require('packer').startup(
                 "akinsho/bufferline.nvim",
                 tag = "v3.*",
                 config = function()
-                    require("configs.bufferline")
+                    require("plugin-configs.bufferline")
                 end
             }
             -- 搜索时显示条目
             use {
                 "kevinhwang91/nvim-hlslens",
                 config = function ()
-                    require("configs.nvim-hlslens")
+                    require("plugin-configs.nvim-hlslens")
                 end
             }
             -- 显示缩进线
             use {
                 "lukas-reineke/indent-blankline.nvim",
                 config = function()
-                    require("configs.indent-blankline")
+                    require("plugin-configs.indent-blankline")
                 end
             }
             -- 自动匹配括号
             use {
                 "windwp/nvim-autopairs",
                 config = function()
-                    require("configs.nvim-autopairs")
+                    require("plugin-configs.nvim-autopairs")
                 end
             }
             -- 快速更改单词
             use {
                 "AndrewRadev/switch.vim",
                 config = function()
-                    require("configs.switch")
+                    require("plugin-configs.switch")
                 end
             }
             -- 快速跳转
@@ -136,7 +131,7 @@ return require('packer').startup(
                 "phaazon/hop.nvim",
                 branch = 'v2',
                 config = function()
-                    require("configs.hop")
+                    require("plugin-configs.hop")
                 end
             }
             -- 包裹修改
@@ -144,21 +139,21 @@ return require('packer').startup(
                 "kylechui/nvim-surround",
                 tag = "*",
                 config = function()
-                    require("configs.surround")
+                    require("plugin-configs.surround")
                 end
             }
             -- 显示光标下相同词汇
             use {
                 "RRethy/vim-illuminate",
                 config = function()
-                    require("configs.vim-illuminate")
+                    require("plugin-configs.vim-illuminate")
                 end
             }
             -- 自动恢复光标位置
             use {
                 "ethanholz/nvim-lastplace",
                 config = function()
-                    require("configs.nvim-lastplace")
+                    require("plugin-configs.nvim-lastplace")
                 end
             }
             -- 全局替换
@@ -168,7 +163,7 @@ return require('packer').startup(
                     "nvim-lua/plenary.nvim",
                 },
                 config = function()
-                    require("configs.nvim-spectre")
+                    require("plugin-configs.nvim-spectre")
                 end
             }
             -- 多光标模式
@@ -176,8 +171,8 @@ return require('packer').startup(
             vim.cmd([[
                 aug VMlens
                     au!
-                    au User visual_multi_start lua require('configs.vmlens').start()
-                    au User visual_multi_exit lua require('configs.vmlens').exit()
+                    au User visual_multi_start lua require('plugin-configs.vmlens').start()
+                    au User visual_multi_exit lua require('plugin-configs.vmlens').exit()
                 aug END
             ]])
             -- 代码折叠
@@ -185,7 +180,7 @@ return require('packer').startup(
                 "kevinhwang91/nvim-ufo",
                 requires = "kevinhwang91/promise-async",
                 config = function ()
-                    require("configs.nvim-ufo")
+                    require("plugin-configs.nvim-ufo")
                 end
                 
             }
@@ -193,14 +188,14 @@ return require('packer').startup(
             use {
                 "petertriho/nvim-scrollbar",
                 config = function()
-                    require("configs.nvim-scrollbar")
+                    require("plugin-configs.nvim-scrollbar")
                 end
             }
             -- 显示网页色
             use {
                 "norcalli/nvim-colorizer.lua",
                 config = function()
-                    require("configs.nvim-colorizer")
+                    require("plugin-configs.nvim-colorizer")
                 end
             }
             -- 内置终端
@@ -208,14 +203,14 @@ return require('packer').startup(
                 "akinsho/toggleterm.nvim",
                 tag = 'v1.*',
                 config = function()
-                    require("configs.toggleterm")
+                    require("plugin-configs.toggleterm")
                 end
             }
             -- 键位绑定器
             use {
                 "folke/which-key.nvim",
                 config = function()
-                    require("configs.which-key")
+                    require("plugin-configs.which-key")
                 end
             }
             -- 模糊查找
@@ -227,7 +222,7 @@ return require('packer').startup(
                     "sharkdp/fd" -- 文件查找
                 },
                 config = function()
-                    require("configs.telescope")
+                    require("plugin-configs.telescope")
                 end
             }
             use {"nvim-telescope/telescope-ui-select.nvim"}
@@ -243,35 +238,35 @@ return require('packer').startup(
             --use {
             --    "ahmedkhalf/project.nvim",
             --    config = function ()
-            --        require("configs.projects")
+            --        require("plugin-configs.projects")
             --    end
             -- }
             -- 精美弹窗
             use {
                 "rcarriga/nvim-notify",
                 config = function()
-                    require("configs.nvim-notify")
+                    require("plugin-configs.nvim-notify")
                 end
             }
             -- TODO注释样式
             use {
                 "folke/todo-comments.nvim",
                 config = function()
-                    require("configs.todo-comments")
+                    require("plugin-configs.todo-comments")
                 end
             }
             -- 插入模式获得函数签名
             use {
                 "ray-x/lsp_signature.nvim",
                 config = function()
-                    require("configs.lsp_signature")
+                    require("plugin-configs.lsp_signature")
                 end
             }
             -- 灯泡提示代码行为
             use {
                 "kosayoda/nvim-lightbulb",
                 config = function()
-                    require("configs.nvim-lightbulb")
+                    require("plugin-configs.nvim-lightbulb")
                 end
             }
             -- 用于显示诊断，参考，望远镜结果，快速修复和位置列表
@@ -279,7 +274,7 @@ return require('packer').startup(
                 "folke/trouble.nvim",
                 requires = "nvim-tree/nvim-web-devicons",
                 config = function()
-                  require("configs.trouble-nvim")
+                  require("plugin-configs.trouble-nvim")
                 end
               }
             -- LSP 基础服务
@@ -288,7 +283,7 @@ return require('packer').startup(
             use {
                 "p00f/clangd_extensions.nvim",
                 config = function ()
-                    require("configs.clangd_extensions")
+                    require("plugin-configs.clangd_extensions")
                 end
             }
             use {"nanotee/sqls.nvim"}
@@ -296,14 +291,14 @@ return require('packer').startup(
             use {
                 "kkharji/lspsaga.nvim",
                 config = function()
-                    require("configs.lspsaga")
+                    require("plugin-configs.lspsaga")
                 end
             }
             -- LSP 进度提示
             use {
                 "j-hui/fidget.nvim",
                 config = function()
-                    require("configs.fidget")
+                    require("plugin-configs.fidget")
                 end
             }
             -- 自动代码补全系列插件
@@ -342,7 +337,7 @@ return require('packer').startup(
                     {"lukas-reineke/cmp-under-comparator"} -- 让补全结果的排序更加智能
                 },
                 config = function()
-                    require("configs.nvim-cmp")
+                    require("plugin-configs.nvim-cmp")
                 end
             }
             use {
@@ -351,14 +346,14 @@ return require('packer').startup(
                     "nvim-lua/plenary.nvim"
                 },
                 config = function ()
-                    require("configs.cmp-git")
+                    require("plugin-configs.cmp-git")
                 end
             }
             -- 扩展 LSP 诊断
             use {
                 "mfussenegger/nvim-lint",
                 config = function()
-                    require("configs.nvim-lint")
+                    require("plugin-configs.nvim-lint")
                 end
             }
             -- 语法高亮
@@ -366,7 +361,7 @@ return require('packer').startup(
                 "nvim-treesitter/nvim-treesitter",
                 run = {":TSUpdate"},
                 config = function()
-                    require("configs.nvim-treesitter")
+                    require("plugin-configs.nvim-treesitter")
                 end
             }
             -- 彩虹括号
@@ -375,14 +370,14 @@ return require('packer').startup(
             use {
                 'nvim-treesitter/nvim-treesitter-context',
                 config = function ()
-                    require("configs.nvim-treesitter-context")
+                    require("plugin-configs.nvim-treesitter-context")
                 end
             }
             -- 语法感知文本对象，选择、移动、交换和速览支持。
             use {
                 "nvim-treesitter/nvim-treesitter-textobjects",
                 config = function ()
-                    require("configs.nvim-treesitter-textobjects")
+                    require("plugin-configs.nvim-treesitter-textobjects")
                 end
             }
             use {"JoosepAlviste/nvim-ts-context-commentstring"}
@@ -390,49 +385,49 @@ return require('packer').startup(
             use {
                 "numToStr/Comment.nvim",
                 config = function()
-                    require("configs.Comment")
+                    require("plugin-configs.Comment")
                 end
             }
             -- 代码格式化
             use {
                 "sbdchd/neoformat",
                 config = function()
-                    require("configs.neoformat")
+                    require("plugin-configs.neoformat")
                 end
             }
             -- 为不支持 LSP 高亮的主题提供默认高亮方案
             use {
                 "folke/lsp-colors.nvim",
                 config = function()
-                    require("configs.lsp-colors")
+                    require("plugin-configs.lsp-colors")
                 end
             }
             -- LSP 符号和标签的查看器和查找器
             use {
                 "liuchengxu/vista.vim",
                 config = function()
-                    require("configs.vista")
+                    require("plugin-configs.vista")
                 end
             }
             -- 代码调试基础插件
             use {
                 "mfussenegger/nvim-dap",
                 config = function()
-                    require("configs.nvim-dap")
+                    require("plugin-configs.nvim-dap")
                 end
             }
             -- 为代码调试提供内联文本
             use {
                 "theHamsta/nvim-dap-virtual-text",
                 config = function()
-                    require("configs.nvim-dap-virtual-text")
+                    require("plugin-configs.nvim-dap-virtual-text")
                 end
             }
             -- 为代码调试提供 UI 界面
             use {
                 "rcarriga/nvim-dap-ui",
                 config = function()
-                    require("configs.nvim-dap-ui")
+                    require("plugin-configs.nvim-dap-ui")
                 end
             }
             -- 会话管理
@@ -442,7 +437,7 @@ return require('packer').startup(
             --        "nvim-lua/plenary.nvim"
             --    },
             --    config = function ()
-            --        require("configs.neovim-session-manager")
+            --        require("plugin-configs.neovim-session-manager")
             --    end
             --}
         end,
