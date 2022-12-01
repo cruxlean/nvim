@@ -23,6 +23,14 @@ end
 -- auto-save
 mapcmd("<leader>at", "ASToggle")
 
+-- Aerial
+mapcmd("<leader>aa","AerialOpenAll")
+mapcmd("<leader>ao","AerialOpen")
+mapcmd("<leader>ac","AerialClose")
+mapcmd("<leader>ag","AerialToggle")
+mapcmd("<leader>ai","AerialInfo")
+mapcmd("<leader>al","AerialCloseAll")
+
 -- B: 
 -- bufferline
 -- 关闭当前 buffer，由 bufdelete 插件所提供的方法

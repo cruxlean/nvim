@@ -45,6 +45,13 @@ return require('packer').startup(
                     require("plugins-config.symbols-outline")
                 end
             }
+            -- 用于浏览和快速导航的代码大纲窗口
+            use {
+                "stevearc/aerial.nvim",
+                config = function ()
+                    require("plugins-config.aerial")
+                end
+            }
             -- 查看文件目录
             use {
                 "nvim-tree/nvim-tree.lua",
@@ -53,6 +60,13 @@ return require('packer').startup(
                 },
                 config = function()
                     require("plugins-config.nvim-tree")
+                end
+            }
+            -- 完善旧的 quickfix 窗口
+            use {
+                "kevinhwang91/nvim-bqf",
+                config = function ()
+                    require("plugins-config.nvim-bqf")
                 end
             }
             -- 自动保存
@@ -241,6 +255,13 @@ return require('packer').startup(
             --        require("plugins-config.projects")
             --    end
             -- }
+            -- 改进了与Telescope、fzf等的内置接口
+            use {
+                "stevearc/dressing.nvim",
+                config = function ()
+                    require("plugins-config.dressing-nvim")
+                end
+            }
             -- 精美弹窗
             use {
                 "rcarriga/nvim-notify",
